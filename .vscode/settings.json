@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Magic_Cat.sln"
+    "dotnet.defaultSolution": "magic-cat-replica.sln"
 }

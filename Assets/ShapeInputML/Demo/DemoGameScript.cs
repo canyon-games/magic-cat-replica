@@ -3,10 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class DemoGameScript : MonoBehaviour
 {
-
+    public Mesh z,x,i,v,w;
     public Mesh x_mesh;
     public Mesh o_mesh;
     public Mesh tri_mesh;
@@ -22,6 +21,7 @@ public class DemoGameScript : MonoBehaviour
 
     void Start()
     {
+        
         currentShape = (Shapes)Random.Range(0, 6);
         if (!spawnPoint) spawnPoint = GetComponent<Transform>();
         BuildShape();
@@ -46,23 +46,23 @@ public class DemoGameScript : MonoBehaviour
             case Shapes.NONSENSE:
                 break;
             case Shapes.X:
-                shape_item.GetComponent<MeshFilter>().mesh = x_mesh;                
+                shape_item.GetComponent<MeshFilter>().mesh = x;                
                 break;
-            case Shapes.O:
-                shape_item.GetComponent<MeshFilter>().mesh = o_mesh;
+            case Shapes.Z:
+                shape_item.GetComponent<MeshFilter>().mesh = z;
                 break;
-            case Shapes.Triangle:
-                shape_item.GetComponent<MeshFilter>().mesh = tri_mesh;
+            case Shapes.I:
+                shape_item.GetComponent<MeshFilter>().mesh = i;
                 break;
-            case Shapes.Star:
-                shape_item.GetComponent<MeshFilter>().mesh = star_mesh;
+            case Shapes.W:
+                shape_item.GetComponent<MeshFilter>().mesh = w;
                 break;
-            case Shapes.Heart:
-                shape_item.GetComponent<MeshFilter>().mesh = heart_mesh;
+            case Shapes.v:
+                shape_item.GetComponent<MeshFilter>().mesh = v;
                 break;
-            case Shapes.Square:
-                shape_item.GetComponent<MeshFilter>().mesh = square_mesh;
-                break;
+            // case Shapes.Square:
+            //     shape_item.GetComponent<MeshFilter>().mesh = square_mesh;
+            //     break;
         }
     }
 

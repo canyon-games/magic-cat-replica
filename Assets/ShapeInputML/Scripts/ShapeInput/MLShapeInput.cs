@@ -3,13 +3,13 @@ using System.Linq;
 using Unity.Barracuda;
 using UnityEditor;
 using UnityEngine;
-
 namespace ShapeInputs
 {
 
     [RequireComponent(typeof(ShapeDrawing))]
     public class MLShapeInput : MonoBehaviour
     {
+
         [SerializeField] private NNModel model; //ONNX file https://github.com/jackwish/tflite2onnx
         
         private IWorker engine;

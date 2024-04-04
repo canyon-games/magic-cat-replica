@@ -8,13 +8,20 @@ namespace ShapeInputs
 {
     public enum Shapes
     {
+        // NONE = -1,
+        // X = 0,
+        // O = 1,
+        // Triangle = 2,
+        // Square = 3,
+        // Star = 4,
+        // Heart = 5,
+        // NONSENSE = 6
         NONE = -1,
-        X = 0,
-        O = 1,
-        Triangle = 2,
-        Square = 3,
-        Star = 4,
-        Heart = 5,
-        NONSENSE = 6
+        Z = 0,
+        X = 1,
+        W = 2,
+        I = 3,
+        v = 4,
+        NONSENSE = 5
     }
 }
