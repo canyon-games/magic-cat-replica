@@ -14,14 +14,26 @@ namespace ShapeInputs
         // Triangle = 2,
         // Square = 3,
         // Star = 4,
-        // Heart = 5,
+        // Heart = 5,,
         // NONSENSE = 6
         NONE = -1,
-        Z = 0,
-        X = 1,
-        W = 2,
-        I = 3,
-        v = 4,
-        NONSENSE = 5
+        z = 0,
+        v = 1,
+        w = 2,
+        i = 3,
+        heart = 4,
+        infinity = 5,
+        e = 6,
+        hlu = 7,
+        hld = 8,
+        dl = 9,
+        questionmark = 10,
+        a = 11,
+        circle = 12,
+        x = 13,
+        triangle = 14,
+        square = 15,
+        n = 16,
+        NONSENSE = 17
     }
 }

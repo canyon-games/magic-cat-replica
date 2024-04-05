@@ -45,21 +45,21 @@ public class DemoGameScript : MonoBehaviour
             case Shapes.NONE:
             case Shapes.NONSENSE:
                 break;
-            case Shapes.X:
-                shape_item.GetComponent<MeshFilter>().mesh = x;                
-                break;
-            case Shapes.Z:
-                shape_item.GetComponent<MeshFilter>().mesh = z;
-                break;
-            case Shapes.I:
-                shape_item.GetComponent<MeshFilter>().mesh = i;
-                break;
-            case Shapes.W:
-                shape_item.GetComponent<MeshFilter>().mesh = w;
-                break;
-            case Shapes.v:
-                shape_item.GetComponent<MeshFilter>().mesh = v;
-                break;
+            // case Shapes.X:
+            //     shape_item.GetComponent<MeshFilter>().mesh = x;                
+            //     break;
+            // case Shapes.Z:
+            //     shape_item.GetComponent<MeshFilter>().mesh = z;
+            //     break;
+            // case Shapes.I:
+            //     shape_item.GetComponent<MeshFilter>().mesh = i;
+            //     break;
+            // case Shapes.W:
+            //     shape_item.GetComponent<MeshFilter>().mesh = w;
+            //     break;
+            // case Shapes.v:
+            //     shape_item.GetComponent<MeshFilter>().mesh = v;
+            //     break;
             // case Shapes.Square:
             //     shape_item.GetComponent<MeshFilter>().mesh = square_mesh;
             //     break;

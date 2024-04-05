@@ -342,6 +342,18 @@ MonoBehaviour:
   - {fileID: 6842496391402296567, guid: c010727bb67a4514eba7c5f5e0dd8e0d, type: 3}
   - {fileID: 2056412287012376843, guid: 5b9a37b88bc899649abc134834156829, type: 3}
   - {fileID: 2487926632076895076, guid: b084be820ae95204da24aa32a9f4e357, type: 3}
+  - {fileID: 2487926632076895076, guid: 98a5fa25f1987ac45a9990be4a8a1e4d, type: 3}
+  - {fileID: 2487926632076895076, guid: e24e263e989d0c247b0bb770f5bd6614, type: 3}
+  - {fileID: 2487926632076895076, guid: ab372af694edfed4cac1118b21691cda, type: 3}
+  - {fileID: 2487926632076895076, guid: 65b86e8e3b486f24f9ba194c3747d2d3, type: 3}
+  - {fileID: 2487926632076895076, guid: f245460510491f24ab3f2bcaaded65f9, type: 3}
+  - {fileID: 2487926632076895076, guid: 9dcb7c44c13454e4399b2774d4328c6d, type: 3}
+  - {fileID: 2487926632076895076, guid: da4c55651b373584f9d0e7c189f1b0be, type: 3}
+  - {fileID: 2487926632076895076, guid: aabc0cd458577464cbf45fe193df7170, type: 3}
+  - {fileID: 2487926632076895076, guid: 143281ad3f171834b882f6fdd0a83912, type: 3}
+  - {fileID: 2487926632076895076, guid: e61206ee9e4e6a6458314cbe9224c4b7, type: 3}
+  - {fileID: 2487926632076895076, guid: 6ad011cd9cce85546b2a5dd31196e9eb, type: 3}
+  - {fileID: 2487926632076895076, guid: 5bf7625f923c27a4da2dc3a942784b92, type: 3}
   currentshapes: []
   spawnPoints: {fileID: 1716178184}
 --- !u!1 &1266533721
@@ -887,7 +899,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1426162697, guid: 03e7bab73e61bb84fb1ff16329e5c25e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -961,7 +973,7 @@ PrefabInstance:
     - target: {fileID: 8896508046808915336, guid: 00fda10cbe2b0564995fcaa781937ce7, type: 3}
       propertyPath: model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2155d301154f3484cae9b2529b47d941, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: a588bcab92680e445af8c906b8958522, type: 3}
     - target: {fileID: 8896508046808915337, guid: 00fda10cbe2b0564995fcaa781937ce7, type: 3}
       propertyPath: debounceSeconds
       value: 0.75
