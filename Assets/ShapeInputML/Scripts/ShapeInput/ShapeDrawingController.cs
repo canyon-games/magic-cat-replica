@@ -10,7 +10,7 @@ namespace ShapeInputs
 {
 
     [RequireComponent(typeof(RawImage))]
-    public class ShapeDrawing : MonoBehaviour
+    public class ShapeDrawingController : MonoBehaviour
     {
         [Serializable] 
         public class DrawCompleted : UnityEvent<RenderTexture,float> { }

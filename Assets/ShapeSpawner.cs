@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using ShapeInputs;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShapeSpawner : MonoBehaviour
 {
     public int noOfShapes;
     public int resetTimer;
-    public Shape[] shapes;
-    public List<Shape> currentshapes;
+    public Enemy[] shapes;
+    public List<Enemy> currentshapes;
     public Transform spawnPoints;
     private void Start() 
     {
@@ -29,7 +30,7 @@ public class ShapeSpawner : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
-        currentshapes=new List<Shape>();
+        currentshapes=new List<Enemy>();
         for (int i = 0; i < noOfShapes; i++)
         {
             var shape=Instantiate(shapes[Random.Range(0,shapes.Length)]);
@@ -54,6 +55,7 @@ public class ShapeSpawner : MonoBehaviour
     {
         
     }
+    public Text log;
     void Update()
     {     
 
@@ -62,6 +64,7 @@ public class ShapeSpawner : MonoBehaviour
         if(shape.shape!= Shapes.NONE)
         {
             Debug.Log(shape);
+            log.text=shape.ToString();
         }
         // if(shape.shape == currentShape)
         // {
