@@ -29,7 +29,7 @@ namespace ShapeInputs
         private float debounceSeconds = 0.5f; //configurable debounce
 
         //diameter of drawing brush, result should match training images in line thickness. 
-        int _diameter = 3; 
+        public int _diameter = 3; 
         
         //incremented after drawing begins, reset when drawing, invokes the interpreter when it reaches debounceSeconds
         private float debounceTime = 0;

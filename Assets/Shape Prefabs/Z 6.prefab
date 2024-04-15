@@ -88,4 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858ce079dc53b9d45841f75a88b98032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeType: 4
+  shapeType: 5
+  speed: 0
+  damage: 0
