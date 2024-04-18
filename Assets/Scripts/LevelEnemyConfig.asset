@@ -16,7 +16,7 @@ MonoBehaviour:
   - enemies:
     - enemyType:
         name: Gloopy
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: ccbe476b2bdf9f6489c6fff9628c537d, type: 3}
         health: 1
         speed: 1
         attackPower: 10
