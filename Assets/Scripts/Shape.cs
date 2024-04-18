@@ -6,8 +6,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Shapes shapeType;
-    public float speed;
-    public float damage;
+    public State currentState;
+    public SpriteRenderer shapeSprite;
+    public GameObject body;
+    public Animator animator;
+
+    public float speed=1;
+    public int damage=1;
+    public float health=1;
     public virtual void Attack()
     {
 
@@ -15,5 +21,13 @@ public class Enemy : MonoBehaviour
     public virtual void Update()
     {
 
+    }
+    public enum State
+    {
+        Idle,
+        Run,
+        Agressive,
+        Attack,
+        Kill
     }
 }
