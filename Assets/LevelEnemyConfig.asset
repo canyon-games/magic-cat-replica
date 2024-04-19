@@ -49,27 +49,3 @@ MonoBehaviour:
         speed: 1
         attackPower: 20
       count: 2
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies: []
-  - enemies:
-    - enemyType:
-        name: gloopy
-        prefab: {fileID: 0}
-        health: 2
-        speed: 10
-        attackPower: 10
-      count: 5
-    - enemyType:
-        name: 
-        prefab: {fileID: 0}
-        health: 0
-        speed: 0
-        attackPower: 0
-      count: 0
