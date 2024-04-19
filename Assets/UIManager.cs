@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public LevelEnemyConfig levelEnemyConfig;
     [Header("Panel")]
     public GameObject levelCompletePanel;
-    public GameObject levelFailPanel;
+    public GameObject levelFailPanel,exitPanel;
+    public LevelButton levelButton;
+    public GameObject levelParent;
     private void OnEnable() 
     {    
         EventManager.OnLevelComplete.AddListener(LevelComplete);
@@ -17,6 +21,9 @@ public class UIManager : MonoBehaviour
     {
         EventManager.OnLevelComplete.RemoveListener(LevelComplete);
         EventManager.OnLevelFail.RemoveListener(LevelFail);
+    }
+    private void Start() {
+        SpawnLevels();
     }
     public void LevelComplete()
     {
@@ -33,5 +40,17 @@ public class UIManager : MonoBehaviour
     public void LevelFail()
     {
         levelFailPanel.SetActive(true);
+    }
+    public void SpawnLevels()
+    {
+        for (int i = 0; i < levelEnemyConfig.levels.Count; i++)
+        {
+            levelButton=Instantiate(levelButton,levelParent.transform);
+            levelButton.SetLevelNo(i+1);
+        }
+    }
+    public void ExitButton()
+    {
+        exitPanel.SetActive(true);
     }
 }
