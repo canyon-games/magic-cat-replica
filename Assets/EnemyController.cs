@@ -66,7 +66,8 @@ public class EnemyController : Enemy
     }
     public void Running()
     {
-        transform.position = Vector2.MoveTowards(transform.position, PlayerController.instance.transform.position, speed * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, PlayerController.instance.transform.position, speed * Time.deltaTime);
+        transform.position += Vector3.right * speed * Time.deltaTime;
     }
     public void Agressive()
     {

@@ -7,7 +7,7 @@ public class LevelEnemyConfig : ScriptableObject
     [System.Serializable]
     public struct EnemySpawnInfo
     {
-        public EnemyType enemyType;
+        public EnemyData enemydata;
         public int count;
     }
     [System.Serializable]
@@ -20,11 +20,16 @@ public class LevelEnemyConfig : ScriptableObject
 
 
 [System.Serializable]
-public class EnemyType
+public class EnemyData
 {
-    public string name;
+    public EnemyType enemyType;
     public GameObject prefab;
     public int health;
     public float speed;
     public int attackPower;
+    public float spawnDely;
+}
+public enum EnemyType
+{
+    air,ground
 }

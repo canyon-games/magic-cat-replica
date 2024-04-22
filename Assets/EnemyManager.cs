@@ -13,8 +13,7 @@ public class EnemyManager : MonoBehaviour
     public List<EnemyController> currentEnemies;
     public LevelEnemyConfig config;
     public int currentLevel;
-    public float spawnDely;
-    public Transform spawnPosition;
+    public Transform spawnPosition,spawnPositionAir;
     private void Start()
     {
         foreach (var enemyInfo in config.levels[currentLevel].enemies)
@@ -50,11 +49,14 @@ public class EnemyManager : MonoBehaviour
         {
             for (int i = 0; i < enemyInfo.count; i++)
             {
-                yield return new WaitForSeconds(spawnDely);
-                var enemy = Instantiate(enemyInfo.enemyType.prefab, spawnPosition.position, Quaternion.identity);
+                yield return new WaitForSeconds(enemyInfo.enemydata.spawnDely);
+                var enemy = 
+                Instantiate(enemyInfo.enemydata.prefab,
+                (enemyInfo.enemydata.enemyType==EnemyType.air)? spawnPositionAir.position : spawnPosition.position,
+                Quaternion.identity);
                 var enemyController = enemy.GetComponent<EnemyController>();
                 AssignRandomShape(enemyController);
-                AssignValues(enemyController, enemyInfo.enemyType.speed,enemyInfo.enemyType.attackPower);
+                AssignValues(enemyController, enemyInfo.enemydata.speed,enemyInfo.enemydata.attackPower);
                 currentEnemies.Add(enemyController);
             }
         }
