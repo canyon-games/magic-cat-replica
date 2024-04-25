@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     {
 
     }
+}
     public enum State
     {
         Idle,
@@ -30,4 +31,3 @@ public class Enemy : MonoBehaviour
         Attack,
         Kill
     }
-}

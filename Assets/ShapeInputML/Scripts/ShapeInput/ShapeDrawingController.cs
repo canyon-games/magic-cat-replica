@@ -123,6 +123,7 @@ namespace ShapeInputs
 
             if (Input.GetMouseButtonDown(0))
             {
+                PlayerController.instance.SetAnimatorBool("Scare",true);
                 Vector2 texturePos;
                 if (!GetPixelByMousePosition(Input.mousePosition, out texturePos)) return;
                 bool validDraw = Stamp(new Vector2Int(Mathf.CeilToInt(texturePos.x), Mathf.CeilToInt(texturePos.y)));
@@ -144,6 +145,7 @@ namespace ShapeInputs
             }
             if (Input.GetMouseButtonUp(0))
             {
+                PlayerController.instance.SetAnimatorBool("Scare",false);
                 if (tracer)
                 {
                     var tr = tracer.GetComponentInChildren<TrailRenderer>();
