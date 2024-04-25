@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
     private void Awake() 
     {
+        //animator.speed=.4f;
         currentHealth=health;
         if (instance == null) 
         {
@@ -19,10 +20,13 @@ public class PlayerController : MonoBehaviour
     }
     public void SetAnimatorBool(string trigger,bool value=true)
     {
+        //if(trigger=="Scare"&&value)animator.speed=0.4f;
+        //else animator.speed=1;
         animator.SetBool(trigger,value);
     }
     public void SetAnimatorTrigger(string trigger)
     {
+        //animator.speed=1;
         animator.SetTrigger(trigger);
     }
     public void TakeDamage(int damage)

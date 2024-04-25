@@ -150,6 +150,7 @@ MonoBehaviour:
   noTxt: {fileID: 8776769975671616883}
   levelNo: 0
   button: {fileID: 3733990161681708161}
+  currentObject: {fileID: 0}
 --- !u!1 &5737190537362727628
 GameObject:
   m_ObjectHideFlags: 0
