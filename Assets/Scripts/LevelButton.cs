@@ -31,5 +31,6 @@ public class LevelButton : MonoBehaviour
     {
         UIManager.instance.playButton.interactable = true;
         GamePreference.selectedLevel = levelNo;
+        UIManager.instance.SelectLevel(this);
     }
 }

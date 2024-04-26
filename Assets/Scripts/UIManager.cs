@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -107,18 +108,30 @@ public class UIManager : MonoBehaviour
     {
         levelFailPanel.SetActive(true);
     }
+    public List<LevelButton> buttons;
     public void SpawnLevels()
     {
+        buttons = new List<LevelButton>();
         for (int i = 0; i < levelEnemyConfig.levels.Count; i++)
         {
             levelButton = Instantiate(levelButton, levelParent.transform);
+            buttons.Add(levelButton);
             levelButton.SetLevelNo(i);
         }
         SnapTo();
     }
+    public void SelectLevel(LevelButton levelButton)
+    {
+        foreach (var item in buttons)
+        {
+            item.button.image.color = Color.white;
+        }
+        levelButton.button.image.color = Color.green;
+        SnapTo();
+    }
     public void SnapTo(RectTransform target=null)
     {
-        target=contentPanel.GetChild(GamePreference.openLevels).GetComponent<RectTransform>();
+        target=contentPanel.GetChild(GamePreference.selectedLevel).GetComponent<RectTransform>();
         Canvas.ForceUpdateCanvases();
 
         contentPanel.anchoredPosition =
