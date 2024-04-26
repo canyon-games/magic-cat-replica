@@ -14,7 +14,7 @@ public class EnemyController : Enemy
     public override void Update()
     {
         if(currentState == State.Kill)return;
-        if (Vector2.Distance(transform.position, PlayerController.instance.transform.position) < 0.5)
+        if (Vector2.Distance(transform.position, PlayerController.instance.transform.position) < 1)
         {
             ChangeState(State.Attack);
         }
