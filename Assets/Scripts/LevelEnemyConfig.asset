@@ -76,7 +76,7 @@ MonoBehaviour:
       setCompleted: 0
   - enemySets:
     - enemiesData:
-      - enemyType: 0
+      - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
         health: 1
         speed: 0.5
@@ -91,13 +91,13 @@ MonoBehaviour:
       setCompleted: 0
     - enemiesData:
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 1
         attackPower: 10
         spawnDely: 2
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 1
         attackPower: 10

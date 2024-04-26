@@ -12,9 +12,18 @@ public class AbilityButton : MonoBehaviour
     private void Start() 
     {
         image.fillAmount = 0;
-        image.gameObject.SetActive(false);
+        //image.gameObject.SetActive(false);
         ability=EnemyManager.instance.AbilityButtonClick(abilityType);
-        button.interactable = GamePreference.selectedLevel>=ability.levelRequire;
+        if(GamePreference.selectedLevel>=ability.levelRequire)
+        {
+            image.fillAmount=1;
+            button.interactable = true;
+        }
+        else
+        {
+            image.fillAmount=0;
+            button.interactable = false;
+        }
     }
     public void OnClick()
     {

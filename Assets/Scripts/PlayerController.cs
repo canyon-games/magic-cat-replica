@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool healthBarSystem;
+    public GameObject[] healths;
     public int health;
     public int currentHealth;
     public Transform healthBar;
@@ -33,13 +35,25 @@ public class PlayerController : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX(SFX.Attack);
         SetAnimatorTrigger("Hit");
+        foreach (var item in healths)
+        {
+            if(item.activeInHierarchy)
+            {
+                item.SetActive(false);
+                return;
+            }
+        }
         currentHealth-=damage;
         print("Set health "+ (float)(currentHealth/health));
         healthBar.localScale = new Vector3(1,(float)currentHealth/(float)health,1);
-        print("current health "+currentHealth);
-        if (currentHealth <= 0)
+        if(!healths[healths.Length-1].activeInHierarchy&&!healthBarSystem)
         {
             EventManager.OnLevelFail.Invoke();
         }
+        else if (currentHealth <= 0)
+        {
+            EventManager.OnLevelFail.Invoke();
+        }
+        print("current health "+currentHealth);
     }
 }
