@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -84,6 +85,9 @@ public class UIManager : MonoBehaviour
     public void LevelComplete()
     {
         levelCompletePanel.SetActive(true);
+        levelComplete.Play();
+        // levelCompletePanel.transform.DOScale (0,0);
+        // levelCompletePanel.transform.DOScale(1, 1);
     }
     public void LevelStart()
     {
@@ -107,6 +111,8 @@ public class UIManager : MonoBehaviour
     public void LevelFail()
     {
         levelFailPanel.SetActive(true);
+        levelFailPanel.transform.DOScale (0,0);
+        levelFailPanel.transform.DOScale(1, 1);
     }
     public List<LevelButton> buttons;
     public void SpawnLevels()
@@ -116,7 +122,7 @@ public class UIManager : MonoBehaviour
         {
             levelButton = Instantiate(levelButton, levelParent.transform);
             buttons.Add(levelButton);
-            levelButton.SetLevelNo(i);
+            levelButton.SetLevelNo(i,levelEnemyConfig.levels[i].hasBossLevel);
         }
         SnapTo();
     }
@@ -127,7 +133,7 @@ public class UIManager : MonoBehaviour
             item.button.image.color = Color.white;
         }
         levelButton.button.image.color = Color.green;
-        SnapTo();
+        //SnapTo();
     }
     public void SnapTo(RectTransform target=null)
     {
@@ -152,4 +158,83 @@ public class UIManager : MonoBehaviour
         if (exit) Application.Quit();
         else exitPanel.SetActive(false);
     }
+    public UIAnimtion levelComplete;
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Play();
+        }
+    }
+    public void Play()
+    {
+        levelComplete.Play();
+    }
+}
+[Serializable]
+public class UIAnimtion
+{
+    public DG.Tweening.Sequence sequence;
+    public void Play()
+    {
+        foreach (var item in animationProps)
+        {
+            item.Play().Play();
+        }
+        foreach (var item in animationPropsWithSequance)
+        {
+            if(sequence != null ) sequence.Kill();
+            sequence = DOTween.Sequence();
+            //item.Play();
+
+            //sequence.AppendInterval(1);
+            sequence.Join(item.Play());
+            sequence.Play();
+        }
+    }
+    public List<AnimationProps> animationProps;
+    public List<AnimationProps> animationPropsWithSequance;
+}
+[Serializable]
+public class AnimationProps
+{
+    public Tween tween=null;
+    public Tween Play()
+    {
+        switch (this.animationType)
+        {
+            case DOTweenAnimation.AnimationType.Scale:
+                //if(tween != null)tween.Kill();
+                //transform.DOScale(initial,0);
+                transform.localScale=Vector3.zero;
+                tween= transform.DOScale(final,duration);
+            break;
+            case DOTweenAnimation.AnimationType.Rotate:
+                            transform.DORotate(initial,0);
+                tween= transform.DORotate(final,duration).SetDelay(delay).SetEase(ease).OnComplete(onComplete.Invoke).SetRelative(relative).SetLoops(loops);
+            break;
+            case DOTweenAnimation.AnimationType.LocalRotate:
+                            transform.DOLocalRotate(initial,0);
+                tween= transform.DOLocalRotate(final,duration).SetDelay(delay).SetEase(ease).OnComplete(onComplete.Invoke).SetRelative(relative).SetLoops(loops);
+            break;
+            case DOTweenAnimation.AnimationType.Move:
+                            transform.DOMove(initial,0);
+                tween= transform.DOMove(final,duration).SetDelay(delay).SetEase(ease).OnComplete(onComplete.Invoke).SetRelative(relative).SetLoops(loops);
+            break;
+            case DOTweenAnimation.AnimationType.LocalMove:
+                            transform.DOLocalMove(initial,0);
+                tween= transform.DOLocalMove(final,duration).SetDelay(delay).SetEase(ease).OnComplete(onComplete.Invoke).SetRelative(relative).SetLoops(loops);
+            break;
+        }
+        return tween;
+    }
+    public DOTweenAnimation.AnimationType animationType;
+    public Ease ease;
+    public bool relative;
+    public int loops=1;
+    public bool setInitialValue;
+    public Vector3 initial,final;
+    public float duration;
+    public float delay;
+    public Transform transform;
+    public Action onComplete;
 }

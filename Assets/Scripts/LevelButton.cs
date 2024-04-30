@@ -9,8 +9,9 @@ public class LevelButton : MonoBehaviour
     public TMP_Text noTxt;
     public int levelNo;
     public Button button;
+    public GameObject bossSign;
     public GameObject currentObject;
-    public void SetLevelNo(int no)
+    public void SetLevelNo(int no,bool hasBossLevel)
     {
         button.interactable = no <= GamePreference.openLevels;
         noTxt.text = (no + 1).ToString();
@@ -26,6 +27,7 @@ public class LevelButton : MonoBehaviour
         {
             button.image.color = Color.white;
         }
+        bossSign.SetActive(hasBossLevel);
     }
     public void OnClick()
     {

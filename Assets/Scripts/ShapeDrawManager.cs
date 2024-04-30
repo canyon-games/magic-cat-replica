@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ShapeDrawManager : MonoBehaviour
 {
     public Text logText;
-    public EnemyManager enemyManager;
+    public EnemiesManager enemyManager;
     void Update()
     {
         var shape = ShapeInput.GetShape();

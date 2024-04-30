@@ -6,9 +6,9 @@ using ShapeInputs;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class EnemiesManager : MonoBehaviour
 {
-    public static EnemyManager instance;
+    public static EnemiesManager instance;
     private void Awake()
     {
         instance = this;
@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour
     private void StartGame()
     {
         currentLevel = GamePreference.selectedLevel;
-        totalEnemies=0;
+        totalEnemies = 0;
         foreach (var enemyInfo in config.levels[currentLevel].enemySets)
         {
             for (int i = 0; i < enemyInfo.enemiesData.Count; i++)
@@ -46,14 +46,14 @@ public class EnemyManager : MonoBehaviour
         switch (abilityType)
         {
             case AbilityType.SlowMO:
-            SetSlowMoAbility();
-            return slowMoAbility;
+                SetSlowMoAbility();
+                return slowMoAbility;
             case AbilityType.SameShape:
-            return sameShape;
+                return sameShape;
         }
-            return null;
+        return null;
     }
-    public Ability slowMoAbility,sameShape;
+    public Ability slowMoAbility, sameShape;
     void SetSlowMoAbility()
     {
         StartCoroutine(SlowMoCorotine());
@@ -90,20 +90,26 @@ public class EnemyManager : MonoBehaviour
     }
     public void TakeDamageEnemies(Shapes shapes)
     {
-            for (int i = 0; i < currentEnemies.Count; i++)
+        for (int i = 0; i < currentEnemies.Count; i++)
+        {
+            var enemy=currentEnemies[i];
+            for (int j = 0; j < enemy.shapeDatas.Count; j++)
             {
-                if(currentEnemies[i].shapeType==shapes)
+                var shapeData=enemy.shapeDatas[j];
+                if (shapeData.shapeType == shapes)
                 {
-                    RemoveEnemy(currentEnemies[i]);
+                    if (currentEnemies[i].TakeDamageAndCheckDeath(shapes))
+                        RemoveEnemy(currentEnemies[i]);
                 }
             }
-            // foreach (var item in currentEnemies)
-            // {
-            //     if (item.shapeType == shapes)
-            //     {
-            //         RemoveEnemy(item);
-            //     }
-            // }
+        }
+        // foreach (var item in currentEnemies)
+        // {
+        //     if (item.shapeType == shapes)
+        //     {
+        //         RemoveEnemy(item);
+        //     }
+        // }
     }
     public void CompleteSet()
     {
@@ -123,7 +129,8 @@ public class EnemyManager : MonoBehaviour
                 Quaternion.identity);
                 var enemyController = enemy.GetComponent<EnemyController>();
                 AssignRandomShape(enemyController);
-                AssignValues(enemyController, enemyInfo.enemiesData[i].speed, enemyInfo.enemiesData[i].attackPower);
+                var enemyData = enemyInfo.enemiesData[i];
+                AssignValues(enemyController, enemyData.speed, enemyData.attackPower, enemyData.health);
                 currentEnemies.Add(enemyController);
             }
             yield return new WaitUntil(() => currentSet.setCompleted);
@@ -131,15 +138,19 @@ public class EnemyManager : MonoBehaviour
     }
     public void AssignRandomShape(EnemyController enemyController)
     {
-        int randomValue = UnityEngine.Random.Range(0, 17);
-        enemyController.shapeType = (Shapes)randomValue;
-        enemyController.shapeSprite.sprite = shapeSprites[randomValue];
+        foreach (var shapeData in enemyController.shapeDatas)
+        {
+            int randomValue = UnityEngine.Random.Range(0, 17);
+            shapeData.shapeType = (Shapes)randomValue;
+            shapeData.shapeSprite.sprite = shapeSprites[randomValue];
+        }
         //assign speed and other values
     }
-    public void AssignValues(EnemyController enemyController, float speed, int damage)
+    public void AssignValues(EnemyController enemyController, float speed, int damage, int health)
     {
         enemyController.speed = speed;
         enemyController.damage = damage;
+        enemyController.health = health;
     }
 }
 [Serializable]

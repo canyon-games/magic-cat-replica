@@ -13,7 +13,7 @@ public class AbilityButton : MonoBehaviour
     {
         image.fillAmount = 0;
         //image.gameObject.SetActive(false);
-        ability=EnemyManager.instance.AbilityButtonClick(abilityType);
+        ability=EnemiesManager.instance.AbilityButtonClick(abilityType);
         if(GamePreference.selectedLevel>=ability.levelRequire)
         {
             image.fillAmount=1;
@@ -28,7 +28,7 @@ public class AbilityButton : MonoBehaviour
     public void OnClick()
     {
         image.fillAmount=1;
-        ability = EnemyManager.instance.AbilityButtonClick(abilityType);
+        ability = EnemiesManager.instance.AbilityButtonClick(abilityType);
         StartCoroutine(DecreaseFillAmountOverTime());
     }
     private IEnumerator DecreaseFillAmountOverTime()

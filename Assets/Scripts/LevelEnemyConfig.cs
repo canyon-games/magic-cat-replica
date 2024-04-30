@@ -4,13 +4,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LevelEnemyConfig", menuName = "Level Configurations/Enemy Config", order = 1)]
 public class LevelEnemyConfig : ScriptableObject
 {
-    public EnemySet enemyset;
     [System.Serializable]
     public struct Level
     {
+        public bool hasBossLevel;
         public List<EnemySet> enemySets;
     }
     public List<Level> levels;
+    //public EnemySet enemyset;
 }
 
 

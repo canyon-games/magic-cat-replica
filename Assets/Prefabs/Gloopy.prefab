@@ -581,9 +581,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee741940bf0ccd9419dc17edb1129982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeType: 0
+  enemyBehaviors: []
+  shapeDatas:
+  - shapeType: 0
+    shapeSprite: {fileID: 8373635751524455461}
   currentState: 0
-  shapeSprite: {fileID: 8373635751524455461}
   body: {fileID: 5698245223701801819}
   animator: {fileID: 5821629944337349094}
   speed: 0

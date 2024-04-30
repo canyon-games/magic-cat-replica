@@ -12,7 +12,7 @@ public class GamePlayManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-    public EnemyManager enemyManager;
+    public EnemiesManager enemyManager;
     private void OnEnable() 
     {    
         EventManager.onGamePlay.AddListener(PlayGame);
