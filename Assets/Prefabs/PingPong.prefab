@@ -111,7 +111,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.08, y: 1.03, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6870835220251507714}
@@ -132,9 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee741940bf0ccd9419dc17edb1129982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeType: 0
+  enemyBehaviors: []
+  shapeDatas: []
   currentState: 0
-  shapeSprite: {fileID: 8373635751524455461}
   body: {fileID: 4888459018111906002}
   animator: {fileID: 187502148767335730}
   speed: 0

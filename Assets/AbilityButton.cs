@@ -13,7 +13,8 @@ public class AbilityButton : MonoBehaviour
     {
         image.fillAmount = 0;
         //image.gameObject.SetActive(false);
-        ability=EnemiesManager.instance.AbilityButtonClick(abilityType);
+        if(abilityType==AbilityType.SlowMO)ability=EnemiesManager.instance.abilitiesConfig.slowMoAbility;
+        if(abilityType==AbilityType.SameShape)ability=EnemiesManager.instance.abilitiesConfig.sameShape;
         if(GamePreference.selectedLevel>=ability.levelRequire)
         {
             image.fillAmount=1;
@@ -27,24 +28,33 @@ public class AbilityButton : MonoBehaviour
     }
     public void OnClick()
     {
+        print("ability button pressed");
         image.fillAmount=1;
-        ability = EnemiesManager.instance.AbilityButtonClick(abilityType);
-        StartCoroutine(DecreaseFillAmountOverTime());
+        if(abilityType==AbilityType.SlowMO)
+        {
+            AudioManager.Instance.PlaySFX(SFX.SlowmoAbility);
+            StartCoroutine(DecreaseFillAmountOverTime());
+        }
+        if(abilityType==AbilityType.SameShape)
+        {
+            AudioManager.Instance.PlaySFX(SFX.MirrorAbility);
+            EnemiesManager.instance.SetMirrorAbility(true);
+        }
+        //ability = EnemiesManager.instance.AbilityButtonClick(abilityType);
     }
     private IEnumerator DecreaseFillAmountOverTime()
     {
+        EnemiesManager.instance.SetSlowMoAbility(true);
         image.gameObject.SetActive(true);
-        float elapsedTime = 0f;
-        float startFillAmount = image.fillAmount;
-        float targetFillAmount = 0f;
-
-        while (elapsedTime < ability.duration)
+        float elapsedTime = ability.duration;
+        while (elapsedTime >= 0)
         {
             elapsedTime -= Time.deltaTime;
-            image.fillAmount = Mathf.Lerp(startFillAmount, targetFillAmount, elapsedTime / ability.duration);
-            yield return null;
+            image.fillAmount = Mathf.Lerp(0,1, elapsedTime / ability.duration);
+            //print(elapsedTime);
+            yield return new WaitForEndOfFrame();
         }
-
-        image.fillAmount = targetFillAmount;
+        EnemiesManager.instance.SetSlowMoAbility(false);
+        //image.fillAmount = targetFillAmount;
     }
 }

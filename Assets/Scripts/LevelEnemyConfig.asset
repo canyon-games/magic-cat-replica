@@ -18,7 +18,7 @@ MonoBehaviour:
     - enemiesData:
       - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
-        health: 2
+        health: 1
         speed: 0.5
         attackPower: 10
         spawnDely: 1

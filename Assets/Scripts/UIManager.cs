@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using JetBrains.Annotations;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class UIManager : MonoBehaviour
     public Image progressBar;
     [Header("Panel")]
     public GameObject levelCompletePanel;
-    public GameObject levelFailPanel, exitPanel, mainPanel, gamePanel, settingPanel;
+    public GameObject levelFailPanel, exitPanel, mainPanel, gamePanel, settingPanel,abilityPanel,customizePanel,shopePanel;
     [Header("Texts")]
     public TMP_Text levelNoTxt;
     public TMP_Text nextLevelTxt;
@@ -85,9 +86,17 @@ public class UIManager : MonoBehaviour
     public void LevelComplete()
     {
         levelCompletePanel.SetActive(true);
+        levelCompleteAnimation.PlayAnimation();
         //levelComplete.Play();
         // levelCompletePanel.transform.DOScale (0,0);
         // levelCompletePanel.transform.DOScale(1, 1);
+    }
+    public void LevelFail()
+    {
+        levelFailPanel.SetActive(true);
+        levelFailAnimation.PlayAnimation();
+        // levelFailPanel.transform.DOScale (0,0);
+        // levelFailPanel.transform.DOScale(1, 1);
     }
     public void LevelStart()
     {
@@ -107,12 +116,6 @@ public class UIManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-    public void LevelFail()
-    {
-        levelFailPanel.SetActive(true);
-        levelFailPanel.transform.DOScale (0,0);
-        levelFailPanel.transform.DOScale(1, 1);
     }
     public List<LevelButton> buttons;
     public void SpawnLevels()
@@ -149,9 +152,25 @@ public class UIManager : MonoBehaviour
         Debug.Log("current progress" + progress);
         progressBar.fillAmount = progress;
     }
+    public void AbilityButton(bool active)
+    {
+        abilityPanel.SetActive(active);
+        if(active)abilityPanelAnimation.PlayAnimation();
+    }
+    public void CustomizeButton(bool active)
+    {
+        customizePanel.SetActive(active);
+        if(active)customizePanelAnimation.PlayAnimation();
+    }
+    public void ShopeButton(bool active)
+    {
+        shopePanel.SetActive(active);
+        if(active)shopePanelAnimation.PlayAnimation();
+    }
     public void ExitButton()
     {
         exitPanel.SetActive(true);
+        exitPanelAnimation.PlayAnimation();
     }
     public void ExitGame(bool exit)
     {
@@ -159,6 +178,13 @@ public class UIManager : MonoBehaviour
         else exitPanel.SetActive(false);
     }
     public UIAnimation levelCompleteAnimation;
+    public UIAnimation levelFailAnimation;
+    public UIAnimation abilityPanelAnimation;
+    public UIAnimation customizePanelAnimation;
+    public UIAnimation shopePanelAnimation;
+    public UIAnimation exitPanelAnimation;
+
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -199,6 +225,7 @@ public class AnimationProps
 {
     #region VariableDeclaration
     public Tween tween;
+    public bool activateBeforePlay=true;
     public DOTweenAnimation.AnimationType animationType;
     public Ease ease;
     public bool relative;
@@ -213,26 +240,28 @@ public class AnimationProps
 
     public Tween GetAnimationTweenToPlay()
     {
+        //itemTransform.gameObject.SetActive(!activateBeforePlay);
         switch (animationType)
         {
             case DOTweenAnimation.AnimationType.Scale:
-                itemTransform.DOScale(Vector3.zero,0);
+                //itemTransform.DOScale(Vector3.zero,0);
+                itemTransform.localScale=initial;
                 tween = itemTransform.DOScale(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
                 break;
             case DOTweenAnimation.AnimationType.Rotate:
-                itemTransform.DORotate(initial, 0);
+                itemTransform.eulerAngles=initial;
                 tween = itemTransform.DORotate(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
                 break;
             case DOTweenAnimation.AnimationType.LocalRotate:
-                itemTransform.DOLocalRotate(initial, 0);
+                itemTransform.localEulerAngles=initial;
                 tween = itemTransform.DOLocalRotate(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
                 break;
             case DOTweenAnimation.AnimationType.Move:
-                itemTransform.DOMove(initial, 0);
+                itemTransform.position=initial;
                 tween = itemTransform.DOMove(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
                 break;
             case DOTweenAnimation.AnimationType.LocalMove:
-                itemTransform.DOLocalMove(initial, 0);
+                itemTransform.localPosition=initial;
                 tween = itemTransform.DOLocalMove(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
                 break;
         }

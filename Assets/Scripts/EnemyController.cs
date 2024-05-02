@@ -8,10 +8,30 @@ public class EnemyController : Enemy
     public GameObject destroyParticles,attackParticles;
     public delegate void EnemyAction();
     public EnemyAction currentAction;
+    [Header("animator")]
+    public float walkSpeedAnim=1f;
+    public float runSpeedAnim=1.5f;
     private void Start()
     {
         currentState = State.Idle;
         ChangeState(State.Run);
+    }
+    public void SlowMo(bool has,float factor)
+    {
+        if(has)
+        {
+            speed/=factor;
+            walkSpeedAnim/=factor;
+            runSpeedAnim/=factor;
+            //animator.speed/=factor;
+        }
+        else
+        {
+            speed*=factor;
+            walkSpeedAnim*=factor;
+            runSpeedAnim*=factor;
+            //animator.speed*=factor;
+        }
     }
     public override void Update()
     {
@@ -33,11 +53,9 @@ public class EnemyController : Enemy
         switch (currentState)
         {
             case State.Run:
-                if(animator)animator.speed = 1;
                 currentAction = Running;
                 break;
             case State.Agressive:
-                if(animator)animator.speed = 1.5f;
                 currentAction = Agressive;
                 break;
             case State.Attack:
@@ -83,11 +101,13 @@ public class EnemyController : Enemy
     }
     public void Running()
     {
+        if(animator)animator.speed = walkSpeedAnim;
         //transform.position = Vector2.MoveTowards(transform.position, PlayerController.instance.transform.position, speed * Time.deltaTime);
         transform.position += Vector3.right * speed * Time.deltaTime;
     }
     public void Agressive()
     {
+        if(animator)animator.speed = runSpeedAnim;
         transform.position = Vector2.MoveTowards(transform.position, PlayerController.instance.transform.position, speed * 1.5f * Time.deltaTime);
     }
     public void Attacking()

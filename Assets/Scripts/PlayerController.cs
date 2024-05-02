@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
             if(item.activeInHierarchy)
             {
                 item.SetActive(false);
-                return;
+                break;
             }
         }
         currentHealth-=damage;

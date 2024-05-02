@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ShapeInputs;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -17,9 +18,9 @@ public class EnemiesManager : MonoBehaviour
     public List<Sprite> shapeSprites;
     public int totalEnemies, killedEnemies;
     public EnemySet currentSet;
-    public List<EnemyController> levelEnemies;
     public List<EnemyController> currentEnemies;
     public LevelEnemyConfig config;
+    public AbilitiesConfig abilitiesConfig;
     public int currentLevel;
     public Transform spawnPosition, spawnPositionAir;
     private void OnEnable()
@@ -41,33 +42,40 @@ public class EnemiesManager : MonoBehaviour
         killedEnemies = 0;
         UIManager.instance.UpdateProgress(killedEnemies == 0 ? 0 : (float)killedEnemies / totalEnemies);
     }
-    public Ability AbilityButtonClick(AbilityType abilityType)
+    public bool hasSlowmo;
+    public void SetSlowMoAbility(bool active)
     {
-        switch (abilityType)
+        hasSlowmo=active;
+        print("slowmo abilityActivated");
+        if (active)
         {
-            case AbilityType.SlowMO:
-                SetSlowMoAbility();
-                return slowMoAbility;
-            case AbilityType.SameShape:
-                return sameShape;
+            foreach (var item in currentEnemies)
+            {
+                item.SlowMo(hasSlowmo,abilitiesConfig.slowMoAbility.factor);
+            }
         }
-        return null;
-    }
-    public Ability slowMoAbility, sameShape;
-    void SetSlowMoAbility()
-    {
-        StartCoroutine(SlowMoCorotine());
-    }
-    IEnumerator SlowMoCorotine()
-    {
-        foreach (var item in levelEnemies)
+        else
         {
-            item.speed /= slowMoAbility.factor;
+            foreach (var item in currentEnemies)
+            {
+                item.SlowMo(hasSlowmo,abilitiesConfig.slowMoAbility.factor);
+                //item.speed *= abilitiesConfig.slowMoAbility.factor;
+            }
         }
-        yield return new WaitForSeconds(slowMoAbility.duration);
-        foreach (var item in levelEnemies)
+    }
+    public void SetMirrorAbility(bool active)
+    {
+        print("mirror abilityActivated");
+        var _shapeData = currentEnemies[0].shapeDatas[0];
+        //var shapeType = currentEnemies[0].shapeDatas[0].shapeType;
+        for (int i = 0; i < currentEnemies.Count; i++)
         {
-            item.speed *= slowMoAbility.factor;
+            foreach (var shapeData in currentEnemies[i].shapeDatas)
+            {
+                shapeData.shapeSprite.sprite = _shapeData.shapeSprite.sprite;  
+                shapeData.shapeType = _shapeData.shapeType;  
+            }
+            //currentEnemies[i].shapeDatas[0].shapeType = shapeType;
         }
     }
     public void RemoveEnemy(EnemyController enemyController)
@@ -88,21 +96,36 @@ public class EnemiesManager : MonoBehaviour
             EventManager.OnLevelComplete.Invoke();
         }
     }
+    public List<EnemyController> damagedEnemies;
     public void TakeDamageEnemies(Shapes shapes)
     {
-        for (int i = 0; i < currentEnemies.Count; i++)
+        damagedEnemies=new List<EnemyController>();
+        var Count=currentEnemies.Count;
+        //for (int i = 0; i < Count; i++)
+        foreach (var enemy in currentEnemies)
         {
-            var enemy=currentEnemies[i];
+            print("loop count");
+            //var enemy = currentEnemies[i];
             for (int j = 0; j < enemy.shapeDatas.Count; j++)
             {
-                var shapeData=enemy.shapeDatas[j];
+                var shapeData = enemy.shapeDatas[j];
                 if (shapeData.shapeType == shapes)
                 {
-                    if (currentEnemies[i].TakeDamageAndCheckDeath(shapes))
-                        RemoveEnemy(currentEnemies[i]);
+                    if (enemy.TakeDamageAndCheckDeath(shapes))
+                    {
+                        print("Damage Enemy");
+                        //Debug.Break();
+                        //RemoveEnemy(currentEnemies[i]);
+                        RemoveEnemy(enemy);
+                        //damagedEnemies.Add(enemy);
+                    }
                 }
             }
         }
+        // for (int i = 0; i < damagedEnemies.Count; i++)
+        // {
+        //     RemoveEnemy(damagedEnemies[i]);
+        // }
         // foreach (var item in currentEnemies)
         // {
         //     if (item.shapeType == shapes)
@@ -148,20 +171,11 @@ public class EnemiesManager : MonoBehaviour
     }
     public void AssignValues(EnemyController enemyController, float speed, int damage, int health)
     {
+        //enemyController.speed = speed/abilitiesConfig.slowMoAbility.factor;
         enemyController.speed = speed;
         enemyController.damage = damage;
         enemyController.health = health;
+        if(hasSlowmo)
+        enemyController.SlowMo(true,abilitiesConfig.slowMoAbility.factor);
     }
-}
-[Serializable]
-public class Ability
-{
-    public AbilityType type;
-    public float duration;
-    public int levelRequire;
-    public float factor;
-}
-public enum AbilityType
-{
-    SlowMO, SameShape
 }
