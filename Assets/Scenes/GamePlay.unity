@@ -1950,7 +1950,7 @@ MonoBehaviour:
       setInitialValue: 1
       initial: {x: 0, y: 0, z: 0}
       final: {x: 1, y: 1, z: 1}
-      duration: 0.3
+      duration: 0.1
       delay: 0
       itemTransforms:
       - {fileID: 1922428419}
@@ -1974,7 +1974,7 @@ MonoBehaviour:
       setInitialValue: 1
       initial: {x: 0, y: 0, z: 0}
       final: {x: 1, y: 1, z: 1}
-      duration: 0.3
+      duration: 0.1
       delay: 0
       itemTransforms:
       - {fileID: 419993044}
