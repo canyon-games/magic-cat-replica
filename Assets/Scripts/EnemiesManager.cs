@@ -63,6 +63,28 @@ public class EnemiesManager : MonoBehaviour
             }
         }
     }
+    public void SetBlastAbility()
+    {
+        // foreach(var item in currentEnemies)
+        // {
+        //     RemoveEnemy(item);
+        // }
+        for (int i = 0; i < currentEnemies.Count; i++)
+        {
+            print("Total Blast Objects");
+            RemoveAtEnemy(i);
+        }
+        currentEnemies.Clear();
+                if (currentEnemies.Count == 0)
+        {
+            currentSet.setCompleted = true;
+        }
+        if (killedEnemies == totalEnemies)
+        {
+            Debug.LogWarning("Game Should complete");
+            EventManager.OnLevelComplete.Invoke();
+        }
+    }
     public void SetMirrorAbility(bool active)
     {
         print("mirror abilityActivated");
@@ -77,6 +99,14 @@ public class EnemiesManager : MonoBehaviour
             }
             //currentEnemies[i].shapeDatas[0].shapeType = shapeType;
         }
+    }
+    public void RemoveAtEnemy(int index)
+    {
+        killedEnemies++;
+        AudioManager.Instance.PlaySFX(SFX.Destroy);
+        UIManager.instance.UpdateProgress(killedEnemies == 0 ? 0 : (float)killedEnemies / totalEnemies);
+        currentEnemies[index].ChangeState(State.Kill);
+        //currentEnemies.RemoveAt(index);
     }
     public void RemoveEnemy(EnemyController enemyController)
     {
@@ -101,11 +131,11 @@ public class EnemiesManager : MonoBehaviour
     {
         damagedEnemies=new List<EnemyController>();
         var Count=currentEnemies.Count;
-        //for (int i = 0; i < Count; i++)
-        foreach (var enemy in currentEnemies)
+        for (int i = 0; i < currentEnemies.Count; i++)
+        //foreach (var enemy in currentEnemies)
         {
             print("loop count");
-            //var enemy = currentEnemies[i];
+            var enemy = currentEnemies[i];
             for (int j = 0; j < enemy.shapeDatas.Count; j++)
             {
                 var shapeData = enemy.shapeDatas[j];

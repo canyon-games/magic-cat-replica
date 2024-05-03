@@ -9,12 +9,20 @@ public class AbilityButton : MonoBehaviour
     public Button button;
     public Image image;
     public Ability ability;
+    private void OnEnable() {
+        EventManager.onGamePlay.AddListener(GamePlay);
+    }
+    public void GamePlay()
+    {
+        button.interactable = true;
+    }
     private void Start() 
     {
-        image.fillAmount = 0;
+        //image.fillAmount = 0;
         //image.gameObject.SetActive(false);
         if(abilityType==AbilityType.SlowMO)ability=EnemiesManager.instance.abilitiesConfig.slowMoAbility;
         if(abilityType==AbilityType.SameShape)ability=EnemiesManager.instance.abilitiesConfig.sameShape;
+        if(abilityType==AbilityType.Blast)ability=EnemiesManager.instance.abilitiesConfig.blast;
         if(GamePreference.selectedLevel>=ability.levelRequire)
         {
             image.fillAmount=1;
@@ -28,6 +36,7 @@ public class AbilityButton : MonoBehaviour
     }
     public void OnClick()
     {
+        button.interactable=false;
         print("ability button pressed");
         image.fillAmount=1;
         if(abilityType==AbilityType.SlowMO)
@@ -39,6 +48,11 @@ public class AbilityButton : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX(SFX.MirrorAbility);
             EnemiesManager.instance.SetMirrorAbility(true);
+        }
+        if(abilityType==AbilityType.Blast)
+        {
+            AudioManager.Instance.PlaySFX(SFX.BlastAbility);
+            EnemiesManager.instance.SetBlastAbility();
         }
         //ability = EnemiesManager.instance.AbilityButtonClick(abilityType);
     }
@@ -54,6 +68,7 @@ public class AbilityButton : MonoBehaviour
             //print(elapsedTime);
             yield return new WaitForEndOfFrame();
         }
+        button.interactable = false;
         EnemiesManager.instance.SetSlowMoAbility(false);
         //image.fillAmount = targetFillAmount;
     }

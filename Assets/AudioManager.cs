@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public enum SFX
 {
-    Complete,Fail,Attack,Destroy,SlowmoAbility,MirrorAbility
+    Complete,Fail,Attack,Destroy,SlowmoAbility,MirrorAbility,BlastAbility,DogDie
 }//enum end
 
 [System.Serializable]

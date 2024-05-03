@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
         healthBar.localScale = new Vector3(1,(float)currentHealth/(float)health,1);
         if(!healths[healths.Length-1].activeInHierarchy&&!healthBarSystem)
         {
+            AudioManager.Instance.PlaySFX(SFX.DogDie);
             EventManager.OnLevelFail.Invoke();
         }
         else if (currentHealth <= 0)
