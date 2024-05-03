@@ -20,13 +20,13 @@ MonoBehaviour:
         prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 1
       - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
       setCompleted: 0
     - enemiesData:
@@ -34,43 +34,43 @@ MonoBehaviour:
         prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
         health: 1
         speed: 0.7
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 0.7
-        attackPower: 10
+        attackPower: 1
         spawnDely: 2
       setCompleted: 0
   - hasBossLevel: 0
     enemySets:
     - enemiesData:
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 2
       - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 4acb38931a72cd64e8644021d3c45905, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
       setCompleted: 0
     - enemiesData:
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 2
-      - enemyType: 0
+      - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
       setCompleted: 0
   - hasBossLevel: 0
@@ -80,13 +80,13 @@ MonoBehaviour:
         prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 2
       - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 4acb38931a72cd64e8644021d3c45905, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 1
       setCompleted: 0
     - enemiesData:
@@ -94,182 +94,238 @@ MonoBehaviour:
         prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 1
-        attackPower: 10
+        attackPower: 1
         spawnDely: 2
       - enemyType: 0
         prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 1
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
       setCompleted: 0
   - hasBossLevel: 0
     enemySets:
     - enemiesData:
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 2
       - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 4acb38931a72cd64e8644021d3c45905, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
       setCompleted: 0
     - enemiesData:
-      - enemyType: 0
+      - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
         health: 1
         speed: 1
-        attackPower: 10
+        attackPower: 1
         spawnDely: 2
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 1
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
       setCompleted: 0
   - hasBossLevel: 1
     enemySets:
     - enemiesData:
+      - enemyType: 0
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
+        health: 1
+        speed: 0.5
+        attackPower: 1
+        spawnDely: 2
+      - enemyType: 1
+        prefab: {fileID: 3761286270443609675, guid: 4acb38931a72cd64e8644021d3c45905, type: 3}
+        health: 1
+        speed: 0.5
+        attackPower: 1
+        spawnDely: 3
+      setCompleted: 0
+    - enemiesData:
       - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 8dd8ae70c50525f4fba4d6b6a688835f, type: 3}
         health: 1
         speed: 0.2
-        attackPower: 10
+        attackPower: 3
         spawnDely: 1
       setCompleted: 0
   - hasBossLevel: 0
     enemySets:
     - enemiesData:
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 2
       - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 4acb38931a72cd64e8644021d3c45905, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
       setCompleted: 0
     - enemiesData:
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 1
-        attackPower: 10
+        attackPower: 1
         spawnDely: 2
-      - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+      - enemyType: 1
+        prefab: {fileID: 3761286270443609675, guid: 4acb38931a72cd64e8644021d3c45905, type: 3}
         health: 1
         speed: 1
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
       setCompleted: 0
   - hasBossLevel: 0
     enemySets:
     - enemiesData:
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 2
       - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 4acb38931a72cd64e8644021d3c45905, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
       setCompleted: 0
     - enemiesData:
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 1
-        attackPower: 10
+        attackPower: 1
         spawnDely: 2
       - enemyType: 0
         prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
         health: 1
         speed: 1
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
       setCompleted: 0
   - hasBossLevel: 0
     enemySets:
     - enemiesData:
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 5
       - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 4acb38931a72cd64e8644021d3c45905, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 1
       setCompleted: 0
     - enemiesData:
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 1
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
-      - enemyType: 0
+      - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
         health: 1
         speed: 1
-        attackPower: 10
+        attackPower: 1
         spawnDely: 1
       setCompleted: 0
   - hasBossLevel: 0
     enemySets:
     - enemiesData:
-      - enemyType: 0
+      - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 5
       - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 4acb38931a72cd64e8644021d3c45905, type: 3}
         health: 1
         speed: 0.5
-        attackPower: 10
+        attackPower: 1
         spawnDely: 1
       setCompleted: 0
     - enemiesData:
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 1
-        attackPower: 10
+        attackPower: 1
         spawnDely: 3
       - enemyType: 0
-        prefab: {fileID: 3761286270443609675, guid: 2d96d8a0c90cbd04d8ae398fc024750e, type: 3}
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
         health: 1
         speed: 1
-        attackPower: 10
+        attackPower: 1
         spawnDely: 1
       setCompleted: 0
   - hasBossLevel: 1
     enemySets:
     - enemiesData:
+      - enemyType: 0
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
+        health: 1
+        speed: 0.5
+        attackPower: 1
+        spawnDely: 2
+      - enemyType: 1
+        prefab: {fileID: 3761286270443609675, guid: 4acb38931a72cd64e8644021d3c45905, type: 3}
+        health: 1
+        speed: 0.5
+        attackPower: 1
+        spawnDely: 3
+      setCompleted: 0
+    - enemiesData:
+      - enemyType: 0
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
+        health: 1
+        speed: 0.5
+        attackPower: 1
+        spawnDely: 2
+      - enemyType: 0
+        prefab: {fileID: 3761286270443609675, guid: 5e4e70383e198154393f9aaf974b06dc, type: 3}
+        health: 1
+        speed: 0.5
+        attackPower: 1
+        spawnDely: 3
+      setCompleted: 0
+    - enemiesData:
+      - enemyType: 1
+        prefab: {fileID: 3761286270443609675, guid: 4acb38931a72cd64e8644021d3c45905, type: 3}
+        health: 1
+        speed: 0.5
+        attackPower: 1
+        spawnDely: 2
+      - enemyType: 1
+        prefab: {fileID: 3761286270443609675, guid: 4acb38931a72cd64e8644021d3c45905, type: 3}
+        health: 1
+        speed: 0.5
+        attackPower: 1
+        spawnDely: 3
+      setCompleted: 0
+    - enemiesData:
       - enemyType: 1
         prefab: {fileID: 3761286270443609675, guid: 8dd8ae70c50525f4fba4d6b6a688835f, type: 3}
         health: 1
         speed: 0.2
-        attackPower: 10
+        attackPower: 3
         spawnDely: 1
       setCompleted: 0

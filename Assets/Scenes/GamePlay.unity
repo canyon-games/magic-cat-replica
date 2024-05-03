@@ -1098,7 +1098,7 @@ Transform:
   m_GameObject: {fileID: 136361666}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7947938, y: 3.31, z: 0}
+  m_LocalPosition: {x: 1.2596767, y: 3.31, z: 0}
   m_LocalScale: {x: 0.59, y: 0.59, z: 0.59}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1295,7 +1295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &150731786
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4627b5b5597c2984287c4c90f14d450f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05c43692168339f43bd14320703bd03a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1708,7 +1708,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1862,7 +1862,7 @@ MonoBehaviour:
     animationPropsWithSequance:
     - activateBeforePlay: 1
       animationType: 5
-      ease: 2
+      ease: 21
       relative: 0
       loops: 1
       setInitialValue: 1
@@ -1870,7 +1870,8 @@ MonoBehaviour:
       final: {x: 1, y: 1, z: 1}
       duration: 1
       delay: 0
-      itemTransform: {fileID: 696759715}
+      itemTransforms:
+      - {fileID: 696759715}
     - activateBeforePlay: 1
       animationType: 2
       ease: 30
@@ -1881,7 +1882,8 @@ MonoBehaviour:
       final: {x: 150, y: -150, z: 0}
       duration: 0.5
       delay: 0
-      itemTransform: {fileID: 1466826684}
+      itemTransforms:
+      - {fileID: 1466826684}
     - activateBeforePlay: 1
       animationType: 2
       ease: 30
@@ -1892,13 +1894,14 @@ MonoBehaviour:
       final: {x: -150, y: -150, z: 0}
       duration: 0.5
       delay: 0
-      itemTransform: {fileID: 1118098360}
+      itemTransforms:
+      - {fileID: 1118098360}
   levelFailAnimation:
     animationProps: []
     animationPropsWithSequance:
     - activateBeforePlay: 1
       animationType: 5
-      ease: 2
+      ease: 21
       relative: 0
       loops: 1
       setInitialValue: 1
@@ -1906,7 +1909,8 @@ MonoBehaviour:
       final: {x: 1, y: 1, z: 1}
       duration: 1
       delay: 0
-      itemTransform: {fileID: 189922121}
+      itemTransforms:
+      - {fileID: 189922121}
     - activateBeforePlay: 1
       animationType: 2
       ease: 30
@@ -1917,27 +1921,92 @@ MonoBehaviour:
       final: {x: 0, y: -150, z: 0}
       duration: 0.5
       delay: 0
-      itemTransform: {fileID: 1118098360}
+      itemTransforms:
+      - {fileID: 1280758858}
   abilityPanelAnimation:
     animationProps: []
-    animationPropsWithSequance: []
+    animationPropsWithSequance:
+    - activateBeforePlay: 0
+      animationType: 5
+      ease: 0
+      relative: 0
+      loops: 1
+      setInitialValue: 1
+      initial: {x: 0, y: 0, z: 0}
+      final: {x: 1, y: 1, z: 1}
+      duration: 0.3
+      delay: 0
+      itemTransforms:
+      - {fileID: 1734144250}
+      - {fileID: 1773192065}
+      - {fileID: 2059735837}
   customizePanelAnimation:
-    animationProps: []
-    animationPropsWithSequance: []
+    animationProps:
+    - activateBeforePlay: 0
+      animationType: 5
+      ease: 0
+      relative: 0
+      loops: 1
+      setInitialValue: 1
+      initial: {x: 0, y: 0, z: 0}
+      final: {x: 1, y: 1, z: 1}
+      duration: 0.3
+      delay: 0
+      itemTransforms:
+      - {fileID: 1922428419}
+      - {fileID: 832417852}
+      - {fileID: 1435006979}
+      - {fileID: 991414992}
+      - {fileID: 2107100042}
+      - {fileID: 61664188}
+      - {fileID: 1578507500}
+      - {fileID: 2139564093}
+      - {fileID: 1038640563}
+      - {fileID: 66831258}
+      - {fileID: 1785293613}
+      - {fileID: 1544804293}
+    animationPropsWithSequance:
+    - activateBeforePlay: 0
+      animationType: 5
+      ease: 0
+      relative: 0
+      loops: 1
+      setInitialValue: 1
+      initial: {x: 0, y: 0, z: 0}
+      final: {x: 1, y: 1, z: 1}
+      duration: 0.3
+      delay: 0
+      itemTransforms:
+      - {fileID: 419993044}
+      - {fileID: 137207077}
+      - {fileID: 1225603838}
+      - {fileID: 313644308}
+      - {fileID: 421678929}
+      - {fileID: 643626936}
+      - {fileID: 1328716467}
+      - {fileID: 799390863}
+      - {fileID: 431199217}
+      - {fileID: 1114044428}
+      - {fileID: 444610628}
+      - {fileID: 599964757}
   shopePanelAnimation:
     animationProps: []
     animationPropsWithSequance:
     - activateBeforePlay: 0
-      animationType: 0
+      animationType: 5
       ease: 0
       relative: 0
-      loops: 0
-      setInitialValue: 0
+      loops: 1
+      setInitialValue: 1
       initial: {x: 0, y: 0, z: 0}
-      final: {x: 0, y: 0, z: 0}
-      duration: 0
+      final: {x: 1, y: 1, z: 1}
+      duration: 0.3
       delay: 0
-      itemTransform: {fileID: 0}
+      itemTransforms:
+      - {fileID: 723874821}
+      - {fileID: 708460653}
+      - {fileID: 2027707872}
+      - {fileID: 631151955}
   exitPanelAnimation:
     animationProps: []
     animationPropsWithSequance: []
@@ -2976,8 +3045,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1993137772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 105.329, y: 87.198}
   m_Pivot: {x: 0, y: 1}
@@ -3057,7 +3126,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 15f8d161be0901a4184fc79ea65113a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 580366e3491f5204b843e467342a5f56, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3497,7 +3566,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 15f8d161be0901a4184fc79ea65113a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 580366e3491f5204b843e467342a5f56, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3687,7 +3756,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 20430d01d7398034eb9a168e098befea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ad2d25ce3165ee4a8f7a6f78c1cf713, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4211,7 +4280,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31f63afa45b6c644fa77dbcbb3d14871, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 556fe088a6a9ec94ea3845640b3eff6b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4730,7 +4799,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1858705036}
   m_HandleRect: {fileID: 1858705035}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4807,9 +4876,9 @@ RectTransform:
   - {fileID: 1217696926}
   m_Father: {fileID: 1393678341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 61, y: -183.81}
   m_SizeDelta: {x: 122, y: 101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &640166243
@@ -4832,7 +4901,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5bdd1876a5565fd41a13941acb0f6c40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d267f2f07d1c60842ac6a045bd94a606, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6915,7 +6984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1d8a54ccaedf61f499f28f483e9d51dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f49cca9c7e5ef84b8b8b4326e56cb92, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7731,15 +7800,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.3647059, b: 0.1137255, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: f502664bd497b7e4c903f107e0b67016, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7999,7 +8068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.04705883, g: 0.36862746, b: 0.04705883, a: 1}
+  m_Color: {r: 0.04705883, g: 0.36862746, b: 0.04705882, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8420,7 +8489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 20430d01d7398034eb9a168e098befea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ad2d25ce3165ee4a8f7a6f78c1cf713, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8799,7 +8868,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5bdd1876a5565fd41a13941acb0f6c40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d267f2f07d1c60842ac6a045bd94a606, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10529,7 +10598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6fa13f41e03f6d6429c80f67077fe038, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e14498b31e2ccc140a44631d2bb7a843, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12300,7 +12369,7 @@ MonoBehaviour:
   - _sfx: 6
     _clip: {fileID: 8300000, guid: 74187ae4268611f4dba356fcfaafd9ee, type: 3}
   - _sfx: 7
-    _clip: {fileID: 8300000, guid: c866db4e4ab27644a9594edc05d40366, type: 3}
+    _clip: {fileID: 8300000, guid: 8280ce7d2a22e2a488c9a41c38bae9d9, type: 3}
 --- !u!4 &1701748479
 Transform:
   m_ObjectHideFlags: 0
@@ -12353,7 +12422,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.87512517}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 47.545}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1716178187
 CanvasRenderer:
@@ -13670,9 +13739,9 @@ RectTransform:
   - {fileID: 1456278959}
   m_Father: {fileID: 1393678341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 61, y: -50.5}
   m_SizeDelta: {x: 122, y: 101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1936591867
@@ -13695,7 +13764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6fa13f41e03f6d6429c80f67077fe038, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e14498b31e2ccc140a44631d2bb7a843, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13739,7 +13808,7 @@ Transform:
   m_GameObject: {fileID: 1940675616}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1047938, y: 0, z: 0}
+  m_LocalPosition: {x: -2.5696766, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13900,7 +13969,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ae18b4ccd90bfd1439921de9755651bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 398bcda0a623782478583d6b69088883, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14111,7 +14180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 490fd0075b9a12549842b134afd31aed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4f0547d3e729e740a63d96533f4b4e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14310,7 +14379,7 @@ Transform:
   m_GameObject: {fileID: 1992544802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0747938, y: 0, z: 0}
+  m_LocalPosition: {x: 1.5396767, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:

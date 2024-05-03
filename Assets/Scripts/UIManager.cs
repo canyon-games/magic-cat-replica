@@ -210,13 +210,19 @@ public class UIAnimation
     {
         foreach (var item in animationProps)
         {
-            item.GetAnimationTweenToPlay().Play();
+            foreach (var transform in item.itemTransforms)
+            {
+                item.GetAnimationTweenToPlay(transform).Play();
+            }
         }
             sequence = DOTween.Sequence();
         foreach (var item in animationPropsWithSequance)
         {
             //sequence.AppendInterval(1);
-            sequence.Append(item.GetAnimationTweenToPlay());
+            foreach (var anim in item.itemTransforms)
+            {
+                sequence.Append(item.GetAnimationTweenToPlay(anim));
+            }
         }
     }
 }
@@ -234,35 +240,35 @@ public class AnimationProps
     public Vector3 initial, final;
     public float duration;
     public float delay;
-    public Transform itemTransform;
+    public Transform[] itemTransforms;
     public Action onComplete;
     #endregion
 
-    public Tween GetAnimationTweenToPlay()
+    public Tween GetAnimationTweenToPlay(Transform transform)
     {
         //itemTransform.gameObject.SetActive(!activateBeforePlay);
         switch (animationType)
         {
             case DOTweenAnimation.AnimationType.Scale:
                 //itemTransform.DOScale(Vector3.zero,0);
-                itemTransform.localScale=initial;
-                tween = itemTransform.DOScale(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
+                transform.localScale=initial;
+                tween = transform.DOScale(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
                 break;
             case DOTweenAnimation.AnimationType.Rotate:
-                itemTransform.eulerAngles=initial;
-                tween = itemTransform.DORotate(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
+                transform.eulerAngles=initial;
+                tween = transform.DORotate(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
                 break;
             case DOTweenAnimation.AnimationType.LocalRotate:
-                itemTransform.localEulerAngles=initial;
-                tween = itemTransform.DOLocalRotate(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
+                transform.localEulerAngles=initial;
+                tween = transform.DOLocalRotate(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
                 break;
             case DOTweenAnimation.AnimationType.Move:
-                itemTransform.position=initial;
-                tween = itemTransform.DOMove(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
+                transform.position=initial;
+                tween = transform.DOMove(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
                 break;
             case DOTweenAnimation.AnimationType.LocalMove:
-                itemTransform.localPosition=initial;
-                tween = itemTransform.DOLocalMove(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
+                transform.localPosition=initial;
+                tween = transform.DOLocalMove(final, duration).SetDelay(delay).SetEase(ease).SetRelative(relative).SetLoops(loops);
                 break;
         }
         return tween;

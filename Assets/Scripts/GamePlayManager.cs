@@ -26,19 +26,20 @@ public class GamePlayManager : MonoBehaviour
     }
     private void Start() 
     {
+        Time.timeScale=1;
         AudioManager.Instance.StartGame();
         //EventManager.onGamePlay.Invoke();    
     }
     public void PlayGame()
     {
+        Time.timeScale=1;
         AudioManager.Instance.StartGame();
         EventManager.OnLevelComplete.AddListener(LevelComplete);
         EventManager.OnLevelFail.AddListener(LevelFail); 
-        Time.timeScale=1;
     }
     public void LevelComplete()
     {
-        //Time.timeScale=0;
+        Time.timeScale=0;
         AudioManager.Instance.GameEnd();
         if(GamePreference.selectedLevel==GamePreference.openLevels&&GamePreference.openLevels<9)
         {
@@ -55,7 +56,7 @@ public class GamePlayManager : MonoBehaviour
     }
     public void LevelFail()
     {
-        //Time.timeScale=0;
+        Time.timeScale=0;
         AudioManager.Instance.GameEnd();
         EventManager.OnLevelFail.RemoveAllListeners();
         EventManager.OnLevelComplete.RemoveAllListeners();

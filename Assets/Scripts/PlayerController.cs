@@ -11,20 +11,20 @@ public class PlayerController : MonoBehaviour
     public Transform healthBar;
     public Animator animator;
     public static PlayerController instance;
-    private void Awake() 
+    private void Awake()
     {
         //animator.speed=.4f;
-        currentHealth=health;
-        if (instance == null) 
+        currentHealth = health;
+        if (instance == null)
         {
             instance = this;
         }
     }
-    public void SetAnimatorBool(string trigger,bool value=true)
+    public void SetAnimatorBool(string trigger, bool value = true)
     {
         //if(trigger=="Scare"&&value)animator.speed=0.4f;
         //else animator.speed=1;
-        animator.SetBool(trigger,value);
+        animator.SetBool(trigger, value);
     }
     public void SetAnimatorTrigger(string trigger)
     {
@@ -35,26 +35,29 @@ public class PlayerController : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX(SFX.Attack);
         SetAnimatorTrigger("Hit");
-        foreach (var item in healths)
+        for (int i = 0; i < damage; i++)
         {
-            if(item.activeInHierarchy)
+            foreach (var item in healths)
             {
-                item.SetActive(false);
-                break;
+                if (item.activeInHierarchy)
+                {
+                    item.SetActive(false);
+                    break;
+                }
             }
         }
-        currentHealth-=damage;
-        print("Set health "+ (float)(currentHealth/health));
-        healthBar.localScale = new Vector3(1,(float)currentHealth/(float)health,1);
-        if(!healths[healths.Length-1].activeInHierarchy&&!healthBarSystem)
+        currentHealth -= damage;
+        print("Set health " + (float)(currentHealth / health));
+        healthBar.localScale = new Vector3(1, (float)currentHealth / (float)health, 1);
+        if (!healths[healths.Length - 1].activeInHierarchy && !healthBarSystem)
         {
             AudioManager.Instance.PlaySFX(SFX.DogDie);
             EventManager.OnLevelFail.Invoke();
         }
-        else if (currentHealth <= 0)
+        else if (currentHealth <= 0 && healthBarSystem)
         {
             EventManager.OnLevelFail.Invoke();
         }
-        print("current health "+currentHealth);
+        print("current health " + currentHealth);
     }
 }
