@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using DG.Tweening;
 using JetBrains.Annotations;
 using TMPro;
@@ -46,7 +47,7 @@ public class UIManager : MonoBehaviour
     }
     private void StartGame()
     {
-        GamePreference.selectedLevel = GamePreference.openLevels;
+        //GamePreference.selectedLevel = GamePreference.openLevels;
         OnEnable();
         //OnDisable();
         SpawnLevels();
@@ -208,11 +209,12 @@ public class UIAnimation
 
     public void PlayAnimation()
     {
+        Debug.Log("Animation Played");
         foreach (var item in animationProps)
         {
             foreach (var transform in item.itemTransforms)
             {
-                item.GetAnimationTweenToPlay(transform).Play();
+                item.GetAnimationTweenToPlay(transform).Play().SetUpdate(true);
             }
         }
             sequence = DOTween.Sequence();
@@ -221,7 +223,7 @@ public class UIAnimation
             //sequence.AppendInterval(1);
             foreach (var anim in item.itemTransforms)
             {
-                sequence.Append(item.GetAnimationTweenToPlay(anim));
+                sequence.Append(item.GetAnimationTweenToPlay(anim)).SetUpdate(true);
             }
         }
     }

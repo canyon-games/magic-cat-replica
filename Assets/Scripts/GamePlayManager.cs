@@ -41,6 +41,7 @@ public class GamePlayManager : MonoBehaviour
     {
         Time.timeScale=0;
         AudioManager.Instance.GameEnd();
+        print("selected leve "+ GamePreference.selectedLevel+ " open level "+GamePreference.openLevels);
         if(GamePreference.selectedLevel==GamePreference.openLevels&&GamePreference.openLevels<9)
         {
             GamePreference.openLevels++;
@@ -51,6 +52,7 @@ public class GamePlayManager : MonoBehaviour
     }
     public void LevelStart()
     {
+        print("selected leve "+ GamePreference.selectedLevel+ " open level "+GamePreference.openLevels);
         EventManager.OnLevelComplete.AddListener(LevelComplete);
         EventManager.OnLevelFail.AddListener(LevelFail); 
     }
