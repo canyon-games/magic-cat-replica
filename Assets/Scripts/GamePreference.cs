@@ -13,7 +13,7 @@ public class GamePreference
     public static readonly string removeAdsID = "com.removeads.magicCat";
     public static int Coins
     {
-        get => PlayerPrefs.GetInt(CoinsPrefs, 500);
+        get => PlayerPrefs.GetInt(CoinsPrefs, 0);
         set => PlayerPrefs.SetInt(CoinsPrefs, value);
     }
     public static int loadedLevel=0;
